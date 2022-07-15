@@ -1,16 +1,17 @@
 {
-  "name": "react-native-webview",
-  "description": "React Native WebView component for iOS, Android, macOS, and Windows",
+  "name": "react-native-shared-webview",
+  "description": "Shared WebView for React Native",
   "main": "index.js",
   "main-internal": "src/index.ts",
   "typings": "index.d.ts",
-  "author": "Jamon Holmgren <jamon@infinite.red>",
+  "author": "Takuya Matsuyama <hi@craftz.dog>",
   "contributors": [
+    "Jamon Holmgren <jamon@infinite.red>",
     "Thibault Malbranche <malbranche.thibault@gmail.com>"
   ],
   "license": "MIT",
   "version": "11.22.7",
-  "homepage": "https://github.com/react-native-webview/react-native-webview#readme",
+  "homepage": "https://github.com/craftzdog/react-native-shared-webview#readme",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --project-path example/ios",
@@ -72,7 +73,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/react-native-webview/react-native-webview.git"
+    "url": "https://github.com/craftzdog/react-native-shared-webview.git"
   },
   "files": [
     "android",
@@ -83,7 +84,7 @@
     "lib",
     "index.js",
     "index.d.ts",
-    "react-native-webview.podspec",
+    "react-native-shared-webview.podspec",
     "react-native.config.js"
   ]
 }
