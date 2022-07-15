@@ -1,4 +1,7 @@
-# React Native WebView - a Modern, Cross-Platform WebView for React Native
+# React Native Shared WebView - a single instance WebView for React Native
+
+It is a fork of [react-native-webview](https://github.com/react-native-webview/react-native-webview).
+It shares an instance of WebView across views in order to avoid reloading the WebView content.
 
 [![star this repo](http://githubbadges.com/star.svg?user=react-native-webview&repo=react-native-webview&style=flat)](https://github.com/react-native-webview/react-native-webview)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
