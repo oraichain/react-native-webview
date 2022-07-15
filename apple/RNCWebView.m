@@ -1188,6 +1188,9 @@ static WKWebView *sharedWebView = nil;
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
   RCTLogWarn(@"Webview Process Terminated");
+  if (sharedWebView) {
+    [sharedWebView reload];
+  }
   if (_onContentProcessDidTerminate) {
     NSMutableDictionary<NSString *, id> *event = [self baseEvent];
     _onContentProcessDidTerminate(event);
