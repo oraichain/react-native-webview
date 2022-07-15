@@ -116,6 +116,8 @@ RCTAutoInsetsProtocol>
 #endif
 }
 
+static WKWebView *sharedWebView = nil;
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame])) {
@@ -406,11 +408,17 @@ RCTAutoInsetsProtocol>
 {
   if (self.window != nil && _webView == nil) {
     WKWebViewConfiguration *wkWebViewConfig = [self setUpWkWebViewConfig];
+
+    if (sharedWebView != nil) {
+      _webView = sharedWebView;
+    } else {
 #if !TARGET_OS_OSX
-    _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];
+      _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];
 #else
-    _webView = [[RNCWKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];
+      _webView = [[RNCWKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];
 #endif // !TARGET_OS_OSX
+      sharedWebView = _webView;
+    }
     
     [self setBackgroundColor: _savedBackgroundColor];
 #if !TARGET_OS_OSX
