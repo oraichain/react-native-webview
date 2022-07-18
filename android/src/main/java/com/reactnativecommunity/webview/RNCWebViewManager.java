@@ -188,6 +188,8 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
     RNCWebView webView;
     if (sSharedWebView != null) {
       webView = sSharedWebView;
+      ViewGroup parent = ((ViewGroup)webView.getParent());
+      if (parent != null) parent.removeView(webView);
     } else {
       webView = new RNCWebView(reactContext);
       sSharedWebView = webView;
@@ -798,6 +800,7 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
   public void onDropViewInstance(WebView webView) {
     super.onDropViewInstance(webView);
     ((ThemedReactContext) webView.getContext()).removeLifecycleEventListener((RNCWebView) webView);
+    ((RNCWebView) webView).setWebViewClient(null);
     // ((RNCWebView) webView).cleanupCallbacksAndDestroy();
     mWebChromeClient = null;
   }
