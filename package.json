@@ -1,16 +1,18 @@
 {
   "name": "react-native-webview",
-  "description": "React Native WebView component for iOS, Android, macOS, and Windows",
+  "description": "Shared WebView for React Native",
   "main": "index.js",
   "main-internal": "src/index.ts",
   "typings": "index.d.ts",
-  "author": "Jamon Holmgren <jamon@infinite.red>",
+  "author": "Takuya Matsuyama <hi@craftz.dog>",
   "contributors": [
-    "Thibault Malbranche <malbranche.thibault@gmail.com>"
+    "Jamon Holmgren <jamon@infinite.red>",
+    "Thibault Malbranche <malbranche.thibault@gmail.com>",
+    "Tupt <tu@orai.io>"
   ],
   "license": "MIT",
   "version": "13.5.1",
-  "homepage": "https://github.com/react-native-webview/react-native-webview#readme",
+  "homepage": "https://github.com/oraichain/react-native-webview#readme",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -72,7 +74,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/react-native-webview/react-native-webview.git"
+    "url": "https://github.com/oraichain/react-native-webview.git"
   },
   "files": [
     "android/src",

@@ -1,4 +1,7 @@
-# React Native WebView
+# React Native Shared WebView - a single instance WebView for React Native
+
+It is a fork of [react-native-webview](https://github.com/react-native-webview/react-native-webview).
+It shares an instance of WebView across views in order to avoid reloading the WebView content.
 
 ![star this repo](https://img.shields.io/github/stars/react-native-webview/react-native-webview?style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
@@ -13,10 +16,10 @@
 Please note that maintainers spend a lot of free time working on this too so feel free to sponsor them, **it really makes a difference.**
 
 - [Thibault Malbranche](https://github.com/Titozzz) ([Twitter @titozzz](https://twitter.com/titozzz)) from [Brigad](https://www.brigad.co/en-gb/about-us)  
-[*Sponsor me* ❤️ !](https://github.com/sponsors/Titozzz)
-
+  [_Sponsor me_ ❤️ !](https://github.com/sponsors/Titozzz)
 
 Windows and macOS are managed by Microsoft, notably:
+
 - [Alexander Sklar](https://github.com/asklar) ([Twitter @alexsklar](https://twitter.com/alexsklar)) from [React Native for Windows](https://microsoft.github.io/react-native-windows/)
 - [Chiara Mooney](https://github.com/chiaramooney) from [React Native for Windows @ Microsoft](https://microsoft.github.io/react-native-windows/)
 
@@ -27,11 +30,11 @@ Shout-out to [Jamon Holmgren](https://github.com/jamonholmgren) from [Infinite R
 Maintaining WebView is very complex, because it is often used for many different usecases (rendering svgs, pdfs, login flows, and much more). We also support many platforms and both architecture of react-native.
 
 Since WebView was extracted from React Native core, nearly 500 pull requests have been merged.  
-Considering that we have limited time, issues will mostly serve as a discussion place for the community, while **we will prioritize reviewing and merging pull requests.** 
+Considering that we have limited time, issues will mostly serve as a discussion place for the community, while **we will prioritize reviewing and merging pull requests.**
 
 ### Platform compatibility
 
-This project is compatible with **iOS**,  **Android**, **Windows** and **macOS**.  
+This project is compatible with **iOS**, **Android**, **Windows** and **macOS**.  
 This project support both **the old** (paper) **and the new architecture** (fabric).  
 This project is compatible with [expo](https://docs.expo.dev/versions/latest/sdk/webview/).
 
@@ -54,8 +57,10 @@ import { WebView } from 'react-native-webview';
 
 // ...
 const MyWebComponent = () => {
-  return <WebView source={{ uri: 'https://reactnative.dev/' }} style={{ flex: 1 }} />;
-}
+  return (
+    <WebView source={{ uri: 'https://reactnative.dev/' }} style={{ flex: 1 }} />
+  );
+};
 ```
 
 For more, read the [API Reference](./docs/Reference.md) and [Guide](./docs/Guide.md). If you're interested in contributing, check out the [Contributing Guide](./docs/Contributing.md).

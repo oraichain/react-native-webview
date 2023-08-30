@@ -152,6 +152,8 @@ RCTAutoInsetsProtocol>
 #endif
 }
 
+static WKWebView *sharedWebView = nil;
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
   if ((self = [super initWithFrame:frame])) {
@@ -477,7 +479,12 @@ RCTAutoInsetsProtocol>
 {
   if (self.window != nil && _webView == nil) {
     WKWebViewConfiguration *wkWebViewConfig = [self setUpWkWebViewConfig];
-    _webView = [[RNCWKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];
+
+    if (sharedWebView == nil) {    
+      sharedWebView = [[RNCWKWebView alloc] initWithFrame:self.bounds configuration: wkWebViewConfig];      
+    }
+    _webView = sharedWebView;
+    
     [self setBackgroundColor: _savedBackgroundColor];
 #if !TARGET_OS_OSX
     _webView.menuItems = _menuItems;
@@ -1332,6 +1339,9 @@ RCTAutoInsetsProtocol>
 - (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView
 {
   RCTLogWarn(@"Webview Process Terminated");
+  if (sharedWebView) {
+    [sharedWebView reload];
+  }
   if (_onContentProcessDidTerminate) {
     NSMutableDictionary<NSString *, id> *event = [self baseEvent];
     _onContentProcessDidTerminate(event);

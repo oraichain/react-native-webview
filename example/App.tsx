@@ -154,7 +154,13 @@ export default class App extends Component<Props, State> {
   };
 
   _changeTest = (testName) => {
-    this.setState({currentTest: TESTS[testName]});
+    this.setState({ restarting: true }, () =>
+      setTimeout(
+        () =>
+          this.setState({ restarting: false, currentTest: TESTS[testName] }),
+        10,
+      ),
+    );
   };
 
   render() {
